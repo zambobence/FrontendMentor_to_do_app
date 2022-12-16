@@ -1,38 +1,364 @@
-.App {
+:root {
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header h1 {
+  font-weight: 700;
+  letter-spacing: 7px;
+  color: var(--light-grayish-blue);
+}
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.main {
+  height: 100vh;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+header {
+  padding: 2rem 0 8rem;
+}
+
+.header-container {
   align-items: center;
+}
+
+header h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: left;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.checkbox img {
+  width: 40%;
+  display: block;
+  justify-self: center;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.flex {
+  display: flex;
+}
+
+.iconCont {
+  height: 22px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.flex .toggleLogo {
+  gap: .5rem;
+  height: 22px;
+}
+
+.flex .toggleLogo:first-of-type {
+  margin-right: 1rem;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.clearAll {
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+}
+
+.container .input_container {
+  position: absolute;
+  top:0px;
+  transform: translateY(-200%);
+  width: 100%;
+  padding: .7rem 1rem;
+  gap: .5rem;
+}
+
+
+.note,
+.box {
+  padding: .7rem 1rem;
+  gap: 1rem;
+  align-items: center;
+  align-content: center;
+}
+
+.main-section {
+  position: absolute;
+  top: -1.3rem;
+  width: 100%;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  overflow: hidden;
+
+}
+
+.delBtn {
+  margin-left: auto;
+}
+
+.delBtn img {
+  max-width: 15px;
+}
+
+.addBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  background: none;
+}
+
+.box {
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.border {
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.controlbox {
+  margin-bottom: 0;
+}
+
+.clearAll {
+  border-bottom-right-radius: .5rem;
+}
+
+.tasksleft {
+  border-bottom-left-radius: .5rem;
+}
+
+.input_container, 
+.controlbox {
+  border-radius: .5rem;
+}
+
+.dark {
+  background-color: var(--very-dark-blue);
+}
+
+.dark .container .input_container,
+.dark .note,
+.dark input {
+  background-color: var(--very-dark-desaturated-blue);
+  color: var(--light-grayish-blue);
+}
+
+.dark .box {
+  color: var(--dark-grayish-blue);
+  background-color: var(--very-dark-desaturated-blue);
+  cursor: pointer;
+}
+
+.dark .box span:hover {
+  color: var(--light-grayish-blue);
+}
+
+.dark .note {
+  border-bottom: 1px solid var(--dark-grayish-blue);
+}
+
+.dark .addBtn,
+.dark .checkbox {
+  border: 1px solid var(--light-grayish-blue);
+}
+
+.dark .done p {
+  text-decoration: line-through;
+  color: var(--dark-grayish-blue)
+}
+
+
+/* LIGHT */
+.light {
+  background-color: hsl(236, 33%, 92%);
+}
+
+.light .container .input_container,
+.light .note,
+.light input {
+  background-color: hsl(240, 14%, 97%);
+}
+
+.light .note {
+  color: var(--very-dark-grayish-blue)
+}
+
+.light .done p {
+  text-decoration: line-through;
+  color: var(--dark-grayish-blue)
+}
+
+.dark .note {
+  border-bottom: 1px solid var(--dark-grayish-blue);
+}
+.light .addBtn,
+.light .checkbox {
+  border: 1px solid var(--light-grayish-blue);
+}
+
+.light .note {
+  border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+input::placeholder {
+  font-family: inherit;
+  color: var(--dark-grayish-blue)
+}
+
+.light .box {
+  color: var(--dark-grayish-blue);
+  background-color: hsl(240, 14%, 97%);
+  cursor: pointer;
+}
+.light .controlbox span:hover {
+  color: yellowgreen;
+}
+.light .box span:hover {
+  color: var(--very-dark-grayish-blue)
+}
+
+.tasksleft {
+  grid-area: tasks left;
+}
+
+.controlbox {
+  grid-area: filters;
+}
+
+.clearAll {
+  grid-area: clear;
+}
+
+.flexdesktop {
+  display: grid;
+  grid-template-areas: "tasksleft  clear"
+                        "filters filters";
+}
+
+/* Media query */
+
+@media (min-width: 600px){
+
+.controlbox {
+  border-radius: 0;
+}
+
+.clearAll,
+.tasksleft {
+  border-bottom-left-radius: none;
+}
+
+.clearAll,
+.controlbox,
+.tasksleft {
+  padding-top: 1rem;
+}
+
+.note img {
+  opacity: 0;
+}
+
+.note:hover img {
+  opacity: 1;
+}
+.box {
+  margin-bottom: 0;
+}
+
+.flexdesktop {
+  display: grid;
+  grid-template-areas: "tasksleft  filters  clear";
+}
+}
+
+
+.errorMessage {
+  color: red
+}
+
+.startUI {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+  place-content: center;
+  padding-top: 3rem;
+}
+
+.startUI h2 {
+  font-size: 2rem;
+  color:hsl(236, 33%, 92%);
+}
+
+.startUI p {
+  color: var(--light-grayish-blue-hover);
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+.signout,
+.startUI input, 
+.startUI button {
+  padding: .6rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  border-radius: .3rem;
+}
+
+.startUI input:first-of-type {
+  margin-top: 1rem;
+}
+.startUI a {
+  background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+.startUI button, 
+.signout {
+  background: linear-gradient(to right, #57ddff, #c058f3);
+  border: transparent;
 }
