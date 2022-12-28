@@ -72,7 +72,6 @@ export default function Main(props) {
       setNewNote({ text: '', done: false })
     } catch (e) {
       console.log('Error at adding note', e.message)
-      setErrror(e.message)
     }
     console.log('Document added')
   }
