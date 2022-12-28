@@ -38,6 +38,7 @@ function Signup() {
     })}
     catch(e) {
         setError(e.message)
+        console.log(e)
         }
     }
  
@@ -53,16 +54,16 @@ function Signup() {
         <section className={on ? "main dark" : "main light"}>
             <div className='container startUI'>
 
-            <h2>Create an account to have all your todos in one place!</h2>
+            <h2>Sign up for free!</h2>
             <p>Already have an account?</p>
-            <p><Link to="/login">Sign in!</Link></p>
-            
+            <p><Link to="/login" alt="link to signin page">Sign in!</Link></p>
             <input 
                 name="email"
                 type="email"
                 value={email}
                 placeholder="email"
                 onChange={(e)=>setEmail(e.target.value)}
+                aria-labelledby="email input field"
             />
 
             <input 
@@ -71,9 +72,11 @@ function Signup() {
                 value={password}
                 placeholder="password"
                 onChange={(e)=>setPassword(e.target.value)}
+                aria-labelledby="password input field"
             />
+            {error ? <h4 className="errorMessage">{error}</h4> : null}
+
             <button onClick={handleSignup}>Register</button>
-            
             </div>
         </section>
     )

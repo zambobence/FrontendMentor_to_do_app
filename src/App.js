@@ -6,14 +6,15 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import {Routes, Route} from 'react-router-dom'
+import Footer from './components/Footer'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   
   
   return (
-    <div className="App">
+    <div className="wrapper">
       <Header/>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -23,7 +24,9 @@ function App() {
                                       <Main/>
                                     </ProtectedRoute>
                                 } />
+        <Route path="*" element={<Navigate to='/' replace />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

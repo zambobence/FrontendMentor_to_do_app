@@ -6,7 +6,7 @@ import {getAuth} from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDUqakGa3JWWQSfKQ9qyqVbWz9FkoWGwgA",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "todo-react-fm.firebaseapp.com",
   projectId: "todo-react-fm",
   storageBucket: "todo-react-fm.appspot.com",

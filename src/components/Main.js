@@ -51,12 +51,12 @@ export default function Main(props){
     const colRef = (user.uid) ? collection(db, 'users', user.uid, 'todos') : collection(db, 'sampleToDos')
 
     
-    // Retrieves the data form the db
+    // Retrieves the data from the db
     React.useEffect(()=>{
         onSnapshot(colRef, ((snapshot)=>{
             let notes = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
             setNoteArray(notes)
-            console.log(notes)
+        //    console.log(notes)
             setFilteredNoteArray(notes)
         }))
     },[user])
@@ -87,8 +87,8 @@ export default function Main(props){
             await addDoc((colRef), {
                 task: newNote.task,
                 done: newNote.done
-            })
-            setNewNote({task: "", done: false})
+            })            
+            setNewNote({text: "", done: false})
         }
         catch (e){
             console.log("Error at adding note", e.message)
@@ -141,7 +141,7 @@ export default function Main(props){
 
 
 
-    console.log("length ", noteArray.length)
+   // console.log("length ", noteArray.length)
 
     const handleSignout = async () =>{
         try {
@@ -162,7 +162,9 @@ export default function Main(props){
         <section className={on ? "main dark" : "main light"}>
             <div className='container'>
                 <div className='flex input_container'>
-                    <button className="addBtn" onClick={addNote}></button>
+                    <form onSubmit={addNote}>
+                    <div className='flex'>
+                    <button className="addBtn"></button>
                     <input 
                         type= "text"
                         value= {newNote.text}
@@ -170,6 +172,8 @@ export default function Main(props){
                         onChange={handleChange}
                         placeholder="Create a new todo..."
                         />
+                    </div>
+                    </form>
                 </div>
             <section className="main-section">
                 <div className="notelist">

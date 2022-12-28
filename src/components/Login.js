@@ -43,7 +43,7 @@ function Login() {
             <div className='container startUI'>
                 <h2>Login to see your todos!</h2>
                 <p>Don't have an account?</p>
-                <p><Link to="/signup">Sign up for free!</Link></p>
+                <p><Link to="/signup" alt="link to sign up">Sign up for free!</Link></p>
             {error ? <h4 className="errorMessage">{error}</h4> : null}
             <input 
                 name="email"
@@ -51,6 +51,7 @@ function Login() {
                 value={email}
                 placeholder="email"
                 onChange={(e)=>setEmail(e.target.value)}
+                aria-labelledby="email input field"
             />
 
             <label htmlFor='password'></label>
@@ -60,8 +61,9 @@ function Login() {
                 value={password}
                 placeholder="password"
                 onChange={(e)=>setPassword(e.target.value)}
+                aria-labelledby="password input field"
             />
-            <button onClick={handleSignin}>Login</button>
+            <button onClick={handleSignin} alt="">Login</button>
 
 
             </div>
