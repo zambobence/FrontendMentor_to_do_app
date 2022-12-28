@@ -7,11 +7,11 @@ import {getAuth} from "firebase/auth"
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: "todo-react-fm.firebaseapp.com",
-  projectId: "todo-react-fm",
-  storageBucket: "todo-react-fm.appspot.com",
-  messagingSenderId: "743067651171",
-  appId: "1:743067651171:web:e1768dc55823e28572bc56"
+  authDomain: "fm-to-do-app.firebaseapp.com",
+  projectId: "fm-to-do-app",
+  storageBucket: "fm-to-do-app.appspot.com",
+  messagingSenderId: "210250457950",
+  appId: "1:210250457950:web:dcb2fd4a21ce40352525cf"
 };
 
 // Initialize Firebase
