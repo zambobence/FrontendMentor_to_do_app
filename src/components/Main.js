@@ -1,8 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
 
+import React, { useContext, useState, useEffect } from 'react'
 import {
-  getFirestore, collection, onSnapshot,
-  setDoc,
+  collection, onSnapshot,
   addDoc,
   doc,
   deleteDoc,
@@ -38,12 +38,12 @@ export default function Main(props) {
   // Retrieves the data from the db
   React.useEffect(() => {
     onSnapshot(colRef, ((snapshot) => {
-      const notes = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      const notes = snapshot.docs.map((e) => ({ ...e.data(), id: e.id }))
       setNoteArray(notes)
       //    console.log(notes)
       setFilteredNoteArray(notes)
     }))
-  }, [user, colRef])
+  }, [user])
 
   // Filter notes
   const filterCompleted = () => {
@@ -116,23 +116,13 @@ export default function Main(props) {
 
   // console.log("length ", noteArray.length)
 
-  const handleSignout = async () => {
-    try {
-      await signOut(auth)
-      console.log('Sign out succesfull')
-      navigate('/signup')
-    } catch (e) {
-      setErrror(e.message)
-    }
-  }
-
   return (
     <section className={on ? 'main dark' : 'main light'}>
       <div className="container">
         <div className="flex input_container">
           <form onSubmit={addNote}>
             <div className="flex">
-              <button className="addBtn" />
+              <button className="addBtn checkbox" alt="add note" />
               <input
                 type="text"
                 value={newNote.text}
@@ -158,21 +148,21 @@ export default function Main(props) {
 
           </div>
 
-          {filteredNoteArray.length > 0
+          {noteArray.length > 0
             ? (
               <div className="flexdesktop">
 
-                <span className="box tasksleft">
+                <button type="button" className="box tasksleft">
                   {noteArray.filter((e) => !e.done).length}
                   {' '}
                   items left
-                </span>
-                <span className="box clearAll" onClick={clearCompleted}>Clear completed</span>
+                </button>
+                <button type="button" className="box clearAll" onClick={clearCompleted}>Clear completed</button>
 
                 <div className="flex box controlbox">
-                  <span onClick={showAll}>All</span>
-                  <span onClick={filterActive}>Active</span>
-                  <span onClick={filterCompleted}>Completed</span>
+                  <button type="button" onClick={showAll}>All</button>
+                  <button type="button" onClick={filterActive}>Active</button>
+                  <button type="button" onClick={filterCompleted}>Completed</button>
                 </div>
 
               </div>

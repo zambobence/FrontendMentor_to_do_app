@@ -1,36 +1,34 @@
-import React from 'react'
-import {createContext, useState, useEffect} from 'react'
+import React, { createContext, useState, useEffect } from 'react'
+
 import {
-    getAuth,
-    onAuthStateChanged,
+  getAuth,
+  onAuthStateChanged,
 } from 'firebase/auth'
-import { 
+import {
   getFirestore, collection, onSnapshot,
   setDoc,
   addDoc,
   doc,
   deleteDoc,
   updateDoc,
-} from "firebase/firestore";
-import {app} from '../firebase'
+} from 'firebase/firestore';
+import { app } from '../firebase'
 
 const auth = getAuth(app)
 
 const db = getFirestore(app)
 const UserAuth = createContext()
-function AuthContextProvider(props){
 
-
+function AuthContextProvider({ children }) {
   const [user, setUser] = useState({})
 
+  onAuthStateChanged(auth, (authUser) => { setUser(authUser) });
 
-  onAuthStateChanged(auth, (user) => { setUser(user)});
- 
   return (
-    <UserAuth.Provider value={{auth, user}}>
-        {props.children}
+    <UserAuth.Provider value={{ auth, user }}>
+      {children}
     </UserAuth.Provider>
   )
 }
 
-export {AuthContextProvider, UserAuth, db}
+export { AuthContextProvider, UserAuth, db }

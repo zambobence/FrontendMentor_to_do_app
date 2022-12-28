@@ -28,6 +28,11 @@ footer {
   grid-column: 1 /-1;
 }
 
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
 header {
   background-repeat: no-repeat;
   background-size: cover;
@@ -113,9 +118,6 @@ header h1 {
   height: 22px;
 }
 
-.flex .toggleLogo:first-of-type {
-  margin-right: 1rem;
-}
 
 input {
   border: none;
@@ -155,8 +157,9 @@ input {
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
   overflow: hidden;
-
 }
+
+
 
 .delBtn {
   margin-left: auto;
@@ -172,7 +175,6 @@ input {
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  background: none;
 }
 
 .box {
@@ -412,3 +414,13 @@ input::placeholder {
   }
   }
   
+  .flexdesktop button {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+  }
+
+  .signoutBtn {
+    margin-left: .5rem;
+  }

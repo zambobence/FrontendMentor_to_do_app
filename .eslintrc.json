@@ -23,6 +23,9 @@
     "rules": {
         "semi": 0,
         "linebreak-style": ["error", "windows"],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "no-unused-vars": "warn",
+        "react/prop-types": "warn",
+        "react/button-has-type": "off"
     }
 }
