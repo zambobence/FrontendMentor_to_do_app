@@ -160,13 +160,13 @@ input {
 }
 
 
-
 .delBtn {
   margin-left: auto;
 }
 
 .delBtn img {
-  max-width: 15px;
+  max-width: 80%;
+  align-self: center;
 }
 
 .addBtn {

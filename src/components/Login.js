@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
@@ -37,7 +38,7 @@ function Login() {
     <section className={on ? 'main dark' : 'main light'}>
       <div className="container startUI">
         <h2>Login to see your todos!</h2>
-        <p>Don't have an account?</p>
+        <p>Don&apos;t have an account?</p>
         <p><Link to="/signup" alt="link to sign up">Sign up for free!</Link></p>
         {error ? <h4 className="errorMessage">{error}</h4> : null}
         <form onSubmit={handleSignin}>

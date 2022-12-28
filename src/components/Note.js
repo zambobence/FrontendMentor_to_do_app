@@ -29,10 +29,8 @@ export default function Notes({
         {task}
       </p>
 
-      <button onClick={deleteNote} aria-label="delete item">
-        <div className="delBtn">
-          <img src={iconCross} alt="icon" />
-        </div>
+      <button onClick={deleteNote} className="delBtn" aria-label="delete item">
+        <img src={iconCross} alt="icon" />
       </button>
     </div>
   )
