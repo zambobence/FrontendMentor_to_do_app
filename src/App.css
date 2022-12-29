@@ -101,6 +101,7 @@ header h1 {
   display: block;
   justify-self: center;
   align-self: center;
+  z-index: 999;
 }
 
 .flex {
@@ -138,9 +139,14 @@ input {
   transform: translateY(-200%);
   width: 100%;
   padding: .7rem 1rem;
-  gap: .5rem;
 }
 
+.container .input_container form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
 
 .note,
 .box {
@@ -167,14 +173,6 @@ input {
 .delBtn img {
   max-width: 80%;
   align-self: center;
-}
-
-.addBtn {
-  width: 24px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
 }
 
 .box {
@@ -254,7 +252,6 @@ input {
 .light p {
   color: var(--very-dark-desaturated-blue);
 }
-
 
 
 .light .container .input_container,
@@ -397,11 +394,11 @@ input::placeholder {
     padding-top: 1rem;
   }
   
-  .note img {
+  .delBtn img {
     opacity: 0;
   }
   
-  .note:hover img {
+  .note:hover .delBtn img {
     opacity: 1;
   }
   .box {

@@ -1,9 +1,9 @@
-import React, { useContext, useState, useMemo } from 'react'
+import React, { useState, useMemo, createContext } from 'react'
 
-const ThemeContext = React.createContext()
+const ThemeContext = createContext()
 
 function ThemeContextProvider({ children }) {
-  const [on, setOn] = React.useState(true)
+  const [on, setOn] = useState(true)
 
   function toggleTheme() {
     setOn((prevState) => !prevState)
@@ -12,9 +12,6 @@ function ThemeContextProvider({ children }) {
 
   return (
     <ThemeContext.Provider value={value}>
-      {/*
-   <ThemeContext.Provider value={{ on, toggleTheme }}>
-   */}
       {children}
     </ThemeContext.Provider>
   )
